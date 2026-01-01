@@ -1,0 +1,661 @@
+<html  lang="zh-CN"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> 蛇.pw - 首页</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- 配置Tailwind自定义颜色 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1677ff',
+                        secondary: '#0FC6C2',
+                        accent: '#FF2E2E',
+                        dark: '#1D2129',
+                    },
+                    fontFamily: {
+                        sans: ['PingFang SC', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+            .rotate-text {
+                transform: rotate(-15deg);
+            }
+            .game-card {
+                @apply bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+            }
+            .nav-icon {
+                @apply text-gray-500 flex flex-col items-center justify-center text-sm cursor-pointer;
+            }
+            .nav-icon.active {
+                @apply text-primary;
+            }
+            .page-content {
+                @apply hidden;
+            }
+            .page-content.active {
+                @apply block;
+            }
+            .loading {
+                @apply animate-spin inline-block w-5 h-5 border-2 border-white border-t-transparent rounded-full;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen font-sans">
+    <!-- 页面容器 -->
+    <div class="max-w-md mx-auto bg-white min-h-screen relative">
+        <!-- 顶部区域 -->
+        <header class="bg-white shadow-sm px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center" id="user-avatar">
+                <img src="九尾.jpg" alt="用户头像" class="w-12 h-12 rounded-full object-cover border-2 border-primary">
+            </div>
+            <h1 class="text-xl font-bold text-dark" id="page-title">首页</h1>
+            <div class="w-12" id="header-actions">
+                <!-- 可添加其他头部操作按钮 -->
+            </div>
+        </header>
+
+        <!-- 所有页面内容 -->
+        <div class="page-container">
+            <!-- 首页内容 -->
+            <div class="page-content active" id="home-page">
+                <!-- 主图区域 -->
+                <div class="relative w-full h-48" id="main-banner">
+                    <!-- 背景图片 -->
+                    <img src="推广图片1.png" alt= class="w-full h-full object-cover">
+                    
+                  
+                        </span>
+                    </div>
+                    
+                    <!-- 红色图标 -->
+                    <div class="absolute bottom-4 right-4 w-16 h-16 bg-accent rounded-full flex items-center justify-center text-white text-2xl cursor-pointer" id="banner-play-btn">
+                        <i class="fa fa-play"></i>
+                    </div>
+                </div>
+
+                
+                
+                
+                
+                
+                <!-- 网站信息区域 -->
+                <div class="bg-white px-6 py-4 flex justify-between items-center">
+                    <div>
+                        <p class="text-gray-500 text-sm">我的网站</p>
+                        <p class="text-xl font-bold text-dark">主站：蛇.pw 备用网址：副官.pw 旺旺：4485228 </p>
+                    </div>
+                    <div class="flex items-center bg-blue-50 px-4 py-2 rounded-full cursor-pointer" id="invite-btn">
+                        <i class="fa fa-user-plus text-primary mr-2"></i>
+                        <span class="text-primary font-medium">邀请</span>
+                    </div>
+                </div>
+
+                <!-- 推荐游戏区域 -->
+                <div class="px-4 py-6 bg-gray-50">
+                    <div class="flex justify-between items-center mb-6">
+                        <div class="flex items-center">
+                            <i class="fa fa-th-large text-primary mr-2 text-xl"></i>
+                            <h2 class="text-lg font-bold text-dark">推荐游戏</h2>
+                        </div>
+                        <div class="bg-white px-4 py-2 rounded-full shadow-sm flex items-center text-gray-600 cursor-pointer" id="all-games-btn">
+                            <span>全部游戏</span>
+                            <i class="fa fa-angle-right ml-1"></i>
+                        </div>
+                    </div>
+
+                    <!-- 游戏卡片网格 -->
+                    <div class="grid grid-cols-3 gap-3">
+                        <!-- 游戏卡片1 -->
+                        <div class="game-card">
+                            <div class="relative">
+                                <img src="星耀国际.jpg" alt="星耀国际游戏封面" class="w-full h-24 object-cover">
+                                <div class="absolute top-0 left-0 bg-blue-500 text-white text-xs px-2 py-1">官方</div>
+                            </div>
+                            <div class="p-3">
+                                <h3 class="font-bold text-dark mb-1">星耀国际</h3>
+                                <p class="text-gray-600 text-xs mb-3">注册送88 累计700反588</p>
+                                <button class="game-enter-btn w-full bg-primary text-white text-sm py-1.5 rounded-md hover:bg-primary/90 transition-colors" data-game="uu" data-url="https://gedxs.hcjwj.com/app/register.php?site_id=1057&topId=28870">
+                                    进入游戏
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 游戏卡片2 -->
+                         <div class="game-card">
+                            <div class="relative">
+                                <img src="征途国际.jpg" alt="征途国际游戏封面" class="w-full h-24 object-cover">
+                                <div class="absolute top-0 left-0 bg-blue-500 text-white text-xs px-2 py-1">官方</div>
+                            </div>
+                            <div class="p-3">
+                                <h3 class="font-bold text-dark mb-1">征途国际</h3>
+                                <p class="text-gray-600 text-xs mb-3">注册送88猪脚饭，累计700反588</p>
+                                <button class="game-enter-btn w-full bg-primary text-white text-sm py-1.5 rounded-md hover:bg-primary/90 transition-colors" data-game="unknown1" data-url="https://wcwx.paradisemall.net/app/register.php?site_id=1031&topId=4076477">
+                                    进入游戏
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 游戏卡片3 -->
+                         <div class="game-card">
+                            <div class="relative">
+                                <img src="胜天国际.JPG" alt="胜天国际游戏封面" class="w-full h-24 object-cover">
+                                <div class="absolute top-0 left-0 bg-blue-500 text-white text-xs px-2 py-1">官方</div>
+                            </div>
+                            <div class="p-3">
+                                <h3 class="font-bold text-dark mb-1">胜天国际</h3>
+                                <p class="text-gray-600 text-xs mb-3">注册送88猪脚饭，累计700反588</p>
+                                <button class="game-enter-btn w-full bg-primary text-white text-sm py-1.5 rounded-md hover:bg-primary/90 transition-colors" data-game="starshine" data-url="https://lejva.tprsmi.com/app/register.php?site_id=1058&topId=26369&selfPlanId=197246">
+                                    进入游戏
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 游戏卡片4 -->
+                       <div class="game-card">
+                            <div class="relative">
+                                <img src="fj.jpg" alt="飞机下载图标" class="w-full h-24 object-cover">
+                                <div class="absolute top-0 left-0 bg-blue-500 text-white text-xs px-2 py-1">官方</div>
+                            </div>
+                            <div class="p-3">
+                                <h3 class="font-bold text-dark mb-1">飞机下载</h3>
+                                <p class="text-gray-600 text-xs mb-3">翻墙VPN,飞机</p>
+                                <button class="game-enter-btn w-full bg-primary text-white text-sm py-1.5 rounded-md hover:bg-primary/90 transition-colors" data-game="haomen" data-url="https://www.kdocs.cn/l/cboT46csfsrj">
+                                    进入游戏
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 游戏卡片5 -->
+                        <div class="game-card">
+                            <div class="relative">
+                                <img src="全国商k.jpg" alt="壹号娛游戏封面" class="w-full h-24 object-cover">
+                                <div class="absolute top-0 left-0 bg-blue-500 text-white text-xs px-2 py-1">官方</div>
+                            </div>
+                            <div class="p-3">
+                                <h3 class="font-bold text-dark mb-1">全国商k酒吧娱乐</h3>
+                                <p class="text-gray-600 text-xs mb-3">刺激真空拖鞋游戏场激情92.95.98</p>
+                                <button class="game-enter-btn w-full bg-primary text-white text-sm py-1.5 rounded-md hover:bg-primary/90 transition-colors" data-game="yihao" data-url="https://qr61.cn/o3pMpX/qhjpzvy">
+                                    进入游戏
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- 游戏卡片6 -->
+                        <div class="game-card">
+                            <div class="relative">
+                                <img src="未满18.jpg" alt="未满18图片" class="w-full h-24 object-cover">
+                                <div class="absolute top-0 left-0 bg-blue-500 text-white text-xs px-2 py-1">官方</div>
+                            </div>
+                            <div class="p-3">
+                                <h3 class="font-bold text-dark mb-1">未满18🈲</h3>
+                                <p class="text-gray-600 text-xs mb-3">涩涩小视频</p>
+                                <button class="game-enter-btn w-full bg-primary text-white text-sm py-1.5 rounded-md hover:bg-primary/90 transition-colors" data-game="dongsheng" data-url="https://eshopfile.zhiyousx.com/175043032985874650.html?code=d4jcbIMI">
+
+                                    进入游戏
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 联系页面内容 -->
+            <div class="page-content" id="contact-page">
+                <div class="p-6">
+                    <h2 class="text-xl font-bold mb-6">联系我们</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-white rounded-lg shadow-sm p-5">
+                            <h3 class="font-semibold text-lg mb-4">联系方式</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-primary mr-3">
+                                        <i class="fa fa-weixin"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-500 text-sm">飞机客服</p>
+                                        <p class="font-medium">@lbxq4</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center">
+                                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-primary mr-3">
+                                        <i class="fa fa-qq"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-gray-500 text-sm">旺旺联系</p>
+                                        <p class="font-medium">4485228</p>
+                                    </div>
+                                </div>
+                                
+                        </div>
+                        
+                        <div class="bg-white rounded-lg shadow-sm p-5">
+                            <h3 class="font-semibold text-lg mb-4">在线留言</h3>
+                            <form id="contact-form" class="space-y-4">
+                                <div>
+                                    <label class="block text-gray-600 text-sm mb-1">您的问题</label>
+                                    <textarea class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50" rows="4" placeholder="请输入您的问题..."></textarea>
+                                </div>
+                                <button type="button" id="submit-message" class="w-full bg-primary text-white py-2 rounded-md hover:bg-primary/90 transition-colors">
+                                    提交留言
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 游戏页面内容 -->
+            <div class="page-content" id="games-page">
+                <div class="p-6">
+                    <h2 class="text-xl font-bold mb-6">所有游戏</h2>
+                    
+                    <div class="flex flex-wrap gap-3 mb-6">
+                        <button class="px-4 py-1.5 bg-primary text-white rounded-full text-sm">全部类型</button>
+                        <button class="px-4 py-1.5 bg-gray-100 text-gray-700 rounded-full text-sm">棋牌游戏</button>
+                        <button class="px-4 py-1.5 bg-gray-100 text-gray-700 rounded-full text-sm">电子游戏</button>
+                        <button class="px-4 py-1.5 bg-gray-100 text-gray-700 rounded-full text-sm">体育竞技</button>
+                        <button class="px-4 py-1.5 bg-gray-100 text-gray-700 rounded-full text-sm">真人娱乐</button>
+                    </div>
+                    
+                    <div class="text-center py-10 text-gray-500">
+                        <i class="fa fa-gamepad text-4xl mb-3"></i>
+                        <p>游戏列表加载中...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 工具页面内容 -->
+            <div class="page-content" id="tools-page">
+                <div class="p-6">
+                    <h2 class="text-xl font-bold mb-6">实用工具</h2>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white rounded-lg shadow-sm p-5 flex flex-col items-center justify-center text-center h-32">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-2">
+                                <i class="fa fa-qrcode text-xl"></i>
+                            </div>
+                            <h3 class="font-medium">邀请二维码</h3>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-5 flex flex-col items-center justify-center text-center h-32">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-2">
+                                <i class="fa fa-history text-xl"></i>
+                            </div>
+                            <h3 class="font-medium">游戏记录</h3>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-5 flex flex-col items-center justify-center text-center h-32">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-2">
+                                <i class="fa fa-line-chart text-xl"></i>
+                            </div>
+                            <h3 class="font-medium">数据统计</h3>
+                        </div>
+                        <div class="bg-white rounded-lg shadow-sm p-5 flex flex-col items-center justify-center text-center h-32">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-2">
+                                <i class="fa fa-cog text-xl"></i>
+                            </div>
+                            <h3 class="font-medium">设置中心</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 发布页内容 -->
+            <div class="page-content" id="publish-page">
+                <div class="p-6">
+                    <h2 class="text-xl font-bold mb-6">发布内容</h2>
+                    
+                    <div class="bg-white rounded-lg shadow-sm p-5 mb-6">
+                        <div class="mb-4">
+                            <label class="block text-gray-700 text-sm font-medium mb-2">内容标题</label>
+                            <input type="text" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="请输入标题...">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 text-sm font-medium mb-2">内容类型</label>
+                            <select class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50">
+                                <option>游戏攻略</option>
+                                <option>活动公告</option>
+                                <option>问题反馈</option>
+                                <option>其他内容</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 text-sm font-medium mb-2">内容详情</label>
+                            <textarea class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50" rows="5" placeholder="请输入内容详情..."></textarea>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label class="block text-gray-700 text-sm font-medium mb-2">上传图片</label>
+                            <div class="border-2 border-dashed border-gray-300 rounded-md p-6 text-center">
+                                <i class="fa fa-cloud-upload text-3xl text-gray-400 mb-2"></i>
+                                <p class="text-gray-500">点击或拖拽图片到此处上传</p>
+                            </div>
+                        </div>
+                        
+                        <button id="publish-content-btn" class="w-full bg-primary text-white py-2.5 rounded-md hover:bg-primary/90 transition-colors">
+                            发布内容
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 底部导航栏 -->
+        <footer class="fixed bottom-0 left-0 right-0 bg-white shadow-[0_-2px_10px_rgba(0,0,0,0.05)] px-6 py-2 max-w-md mx-auto">
+            <div class="flex justify-between">
+                <div class="nav-icon" data-page="contact-page" data-title="联系">
+                    <i class="fa fa-comments-o text-xl mb-1"></i>
+                    <span>联系</span>
+                </div>
+                <div class="nav-icon active" data-page="home-page" data-title="首页">
+                    <i class="fa fa-home text-xl mb-1"></i>
+                    <span>首页</span>
+                </div>
+                <div class="nav-icon" data-page="games-page" data-title="游戏">
+                    <i class="fa fa-gamepad text-xl mb-1"></i>
+                    <span>游戏</span>
+                </div>
+                <div class="nav-icon" data-page="tools-page" data-title="工具">
+                    <i class="fa fa-wrench text-xl mb-1"></i>
+                    <span>工具</span>
+                </div>
+                <div class="nav-icon" data-page="publish-page" data-title="发布页">
+                    <i class="fa fa-pencil text-xl mb-1"></i>
+                    <span>发布页</span>
+                </div>
+            </div>
+        </footer>
+
+        <!-- 为了避免内容被底部导航遮挡 -->
+        <div class="h-20"></div>
+    </div>
+
+    <script>
+        // 应用程序主控制器
+        const App = {
+            // 初始化函数
+            init() {
+                this.setupEventListeners();
+            },
+            
+            // 设置所有事件监听器
+            setupEventListeners() {
+                // 导航按钮点击事件
+                this.setupNavEvents();
+                
+                // 主图区域事件
+                this.setupBannerEvents();
+                
+                // 邀请按钮事件
+                this.setupInviteBtn();
+                
+                // 全部游戏按钮事件
+                this.setupAllGamesBtn();
+                
+                // 游戏进入按钮事件
+                this.setupGameEnterBtns();
+                
+                // 联系表单提交事件
+                this.setupContactForm();
+                
+                // 发布内容按钮事件
+                this.setupPublishBtn();
+                
+                // 用户头像点击事件
+                this.setupUserAvatar();
+            },
+            
+            // 导航按钮事件
+            setupNavEvents() {
+                const navItems = document.querySelectorAll('.nav-icon');
+                
+                navItems.forEach(item => {
+                    item.addEventListener('click', () => {
+                        // 移除所有active类
+                        document.querySelectorAll('.nav-icon').forEach(nav => {
+                            nav.classList.remove('active');
+                        });
+                        
+                        // 添加当前active类
+                        item.classList.add('active');
+                        
+                        // 获取目标页面和标题
+                        const targetPage = item.getAttribute('data-page');
+                        const pageTitle = item.getAttribute('data-title');
+                        
+                        // 切换页面
+                        this.switchPage(targetPage, pageTitle);
+                    });
+                });
+            },
+            
+            // 页面切换函数
+            switchPage(pageId, title) {
+                // 隐藏所有页面
+                document.querySelectorAll('.page-content').forEach(page => {
+                    page.classList.remove('active');
+                });
+                
+                // 显示目标页面
+                document.getElementById(pageId).classList.add('active');
+                
+                // 更新页面标题
+                document.getElementById('page-title').textContent = title;
+                
+                // 滚动到顶部
+                window.scrollTo(0, 0);
+            },
+            
+            // 主图区域事件
+            setupBannerEvents() {
+                // 双击进入
+                const banner = document.getElementById('main-banner');
+                banner.addEventListener('dblclick', () => {
+                    this.showLoading();
+                    setTimeout(() => {
+                        this.hideLoading();
+                        this.showToast('正在进入观看...');
+                        // 后续可添加跳转逻辑
+                    window.location.href = 'https://eshopfile.zhiyousx.com/175043032985874650.html?code=d4jcbIMI';
+
+                    }, 1000);
+                });
+                
+                // 播放按钮点击
+                const playBtn = document.getElementById('banner-play-btn');
+                playBtn.addEventListener('click', () => {
+                    this.showLoading();
+                    setTimeout(() => {
+                        this.hideLoading();
+                        this.showToast('开始播放...');
+                        window.location.href = '胜天国际音乐.mp3';// 后续可添加跳转逻辑
+                    }, 1000);
+                });
+            },
+            
+            // 邀请按钮事件
+            setupInviteBtn() {
+                const inviteBtn = document.getElementById('invite-btn');
+                inviteBtn.addEventListener('click', () => {
+                    this.showToast('邀请功能已激活');
+                    window.location.href = '邀请功能.html';// 后续可添加邀请链接复制或分享逻辑
+                });
+            },
+            
+            // 全部游戏按钮事件
+            setupAllGamesBtn() {
+                const allGamesBtn = document.getElementById('all-games-btn');
+                allGamesBtn.addEventListener('click', () => {
+                    // 切换到游戏页面
+                    this.switchPage('games-page', '游戏');
+                    
+                    // 更新导航状态
+                    document.querySelectorAll('.nav-icon').forEach(nav => {
+                        nav.classList.remove('active');
+                    });
+                    document.querySelector(`.nav-icon[data-page="games-page"]`).classList.add('active');
+                });
+            },
+            
+            // 游戏进入按钮事件
+            setupGameEnterBtns() {
+                const gameBtns = document.querySelectorAll('.game-enter-btn');
+                
+                gameBtns.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const gameName = btn.closest('.game-card').querySelector('h3').textContent;
+                        const gameUrl = btn.getAttribute('data-url');
+                        
+                        this.showLoading();
+                        
+                        setTimeout(() => {
+                            this.hideLoading();
+                            
+                            if (gameUrl) {
+                                // 如果有链接，直接跳转
+                                window.location.href = gameUrl;
+                                this.showToast(`正在进入${gameName}...`);
+                            } else {
+                                // 如果没有链接，提示用户添加
+                                this.showToast(`${gameName}链接待添加`);
+                            }
+                        }, 1000);
+                    });
+                });
+            },
+            
+            // 联系表单提交事件
+            setupContactForm() {
+                const submitBtn = document.getElementById('submit-message');
+                submitBtn.addEventListener('click', () => {
+                    const textarea = document.querySelector('#contact-form textarea');
+                    
+                    if (textarea.value.trim() === '') {
+                        this.showToast('请输入您的问题');
+                        return;
+                    }
+                    
+                    this.showLoading();
+                    setTimeout(() => {
+                        this.hideLoading();
+                        this.showToast('留言已提交，我们会尽快回复您');
+                        textarea.value = '';
+                    }, 1000);
+                });
+            },
+            
+            // 发布内容按钮事件
+            setupPublishBtn() {
+                const publishBtn = document.getElementById('publish-content-btn');
+                publishBtn.addEventListener('click', () => {
+                    const titleInput = document.querySelector('#publish-page input[type="text"]');
+                    
+                    if (!titleInput.value.trim()) {
+                        this.showToast('请输入内容标题');
+                        return;
+                    }
+                    
+                    this.showLoading();
+                    setTimeout(() => {
+                        this.hideLoading();
+                        this.showToast('内容发布成功');
+                        // 发布成功后返回首页
+                        this.switchPage('home-page', '首页');
+                        document.querySelectorAll('.nav-icon').forEach(nav => {
+                            nav.classList.remove('active');
+                        });
+                        document.querySelector(`.nav-icon[data-page="home-page"]`).classList.add('active');
+                    }, 1500);
+                });
+            },
+            
+            // 用户头像点击事件
+            setupUserAvatar() {
+                const avatar = document.getElementById('user-avatar');
+                avatar.addEventListener('click', () => {
+                    this.showToast('个人中心功能待开发');
+                });
+            },
+            
+            // 显示加载状态
+            showLoading() {
+                // 检查是否已存在加载元素
+                let loadingEl = document.getElementById('global-loading');
+                
+                if (!loadingEl) {
+                    // 创建加载元素
+                    loadingEl = document.createElement('div');
+                    loadingEl.id = 'global-loading';
+                    loadingEl.className = 'fixed inset-0 bg-black/50 flex items-center justify-center z-50';
+                    loadingEl.innerHTML = `
+                        <div class="bg-white p-6 rounded-lg flex flex-col items-center">
+                            <div class="loading mb-3"></div>
+                            <p>加载中...</p>
+                        </div>
+                    `;
+                    document.body.appendChild(loadingEl);
+                } else {
+                    // 显示已存在的加载元素
+                    loadingEl.style.display = 'flex';
+                }
+            },
+            
+            // 隐藏加载状态
+            hideLoading() {
+                const loadingEl = document.getElementById('global-loading');
+                if (loadingEl) {
+                    loadingEl.style.display = 'none';
+                }
+            },
+            
+            // 显示提示消息
+            showToast(message) {
+                // 检查是否已存在toast元素
+                let toastEl = document.getElementById('global-toast');
+                
+                if (!toastEl) {
+                    // 创建toast元素
+                    toastEl = document.createElement('div');
+                    toastEl.id = 'global-toast';
+                    toastEl.className = 'fixed bottom-24 left-1/2 transform -translate-x-1/2 bg-black/70 text-white px-4 py-2 rounded-full text-sm z-50 transition-all duration-300 opacity-0';
+                    document.body.appendChild(toastEl);
+                }
+                
+                // 设置消息内容
+                toastEl.textContent = message;
+                
+                // 显示toast
+                toastEl.classList.remove('opacity-0');
+                toastEl.classList.add('opacity-100');
+                
+                // 3秒后隐藏
+                setTimeout(() => {
+                    toastEl.classList.remove('opacity-100');
+                    toastEl.classList.add('opacity-0');
+                }, 3000);
+            }
+        };
+        
+        // 初始化应用
+        document.addEventListener('DOMContentLoaded', () => {
+            App.init();
+        });
+    </script>
+
+
+</body></html></body></html>

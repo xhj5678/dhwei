@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>邀请好友</title>
+    <style>
+        body {font-family: sans-serif; max-width: 600px; margin: 2rem auto; padding: 0 1rem; text-align: center;}
+        button {padding: 1rem 2rem; margin: 0.5rem; font-size: 1rem; cursor: pointer; border: none; border-radius: 8px; background: #07C160; color: white;}
+    </style>
+</head>
+<body>
+    <h1>邀请你加入</h1>
+    <p>点击下方按钮分享给微信好友</p>
+    <button onclick="openWeChat()">打开微信转发</button>
+    <button onclick="copyLink()">复制邀请链接</button>
+
+    <script>
+        // 核心配置：替换为你的HTTPS邀请链接
+        const inviteLink = 'https://kkkxz.cc';
+
+        // 唤起微信App
+        function openWeChat() {
+            window.location.href = 'weixin://';
+        }
+
+        // 复制链接（含异常处理）
+        function copyLink() {
+            navigator.clipboard.writeText(inviteLink).then(() => {
+                alert('链接已复制，快去微信粘贴分享吧！');
+            }).catch(err => {
+                alert('复制失败，请手动复制：' + inviteLink);
+            });
+        }
+    </script>
+</body>
+</html>
